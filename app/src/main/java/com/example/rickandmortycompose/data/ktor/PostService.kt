@@ -1,0 +1,34 @@
+package com.example.rickandmortycompose.data.ktor
+
+import com.example.rickandmortycompose.data.dto.PostRequest
+import com.example.rickandmortycompose.data.dto.PostResponse
+import io.ktor.client.*
+import io.ktor.client.engine.android.*
+import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
+import io.ktor.client.features.logging.*
+
+interface PostService {
+
+    suspend fun getPosts(): List<PostResponse>
+
+    suspend fun createPost(req: PostRequest): PostResponse?
+
+    companion object {
+        fun create(): PostService {
+
+            val client = HttpClient(Android) {
+                install(Logging) {
+                    level = LogLevel.ALL
+                }
+
+                install(JsonFeature) {
+
+                    serializer = KotlinxSerializer()
+                }
+            }
+
+            return PostServiceImpl(client)
+        }
+    }
+}
