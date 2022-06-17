@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer
 import com.pvsb.rickandmortycompose.data.dto.CharactersResultsResponseDTO
 import com.pvsb.rickandmortycompose.data.dto.PostResponse
 import com.pvsb.rickandmortycompose.presentation.components.HomeScreen
+import com.pvsb.rickandmortycompose.presentation.components.backGroundColor
 import com.pvsb.rickandmortycompose.ui.theme.RickAndMortyComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
             }
 
             RickAndMortyComposeTheme {
-                Surface(modifier = Modifier.fillMaxSize()) {
+                Surface(modifier = Modifier.fillMaxSize(), color = backGroundColor) {
                     HomeScreen(content)
                 }
             }
