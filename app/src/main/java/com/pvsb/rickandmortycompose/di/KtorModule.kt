@@ -26,7 +26,12 @@ class KtorModule {
 
             install(JsonFeature) {
 
-                serializer = KotlinxSerializer()
+                val json = kotlinx.serialization.json.Json {
+                    isLenient = true
+                    ignoreUnknownKeys = true
+                }
+
+                serializer = KotlinxSerializer(json)
             }
         }
 
