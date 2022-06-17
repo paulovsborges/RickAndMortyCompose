@@ -1,9 +1,7 @@
 package com.pvsb.rickandmortycompose.presentation.components
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
@@ -11,6 +9,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import com.pvsb.rickandmortycompose.data.dto.CharactersResultsResponseDTO
 
@@ -24,7 +24,10 @@ fun CharacterCard(
 ) {
 
     Surface(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .animateContentSize(),
         onClick = onClick
     ) {
         Column(
@@ -32,7 +35,12 @@ fun CharacterCard(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            ImageLoader(url = character.image)
+            ImageLoader(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RectangleShape)
+                    .height(250.dp), url = character.image
+            )
 
             Spacer(modifier = Modifier.height(10.dp))
 
