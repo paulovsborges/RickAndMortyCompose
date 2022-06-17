@@ -16,8 +16,7 @@ object CustomTypography {
         ),
         body2 = TextStyle(
             fontSize = 18.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.White
+            fontWeight = FontWeight.SemiBold
         ),
         subtitle1 = TextStyle(
             fontSize = 16.sp,
@@ -30,3 +29,6 @@ object CustomTypography {
 
 val backGroundColor = Color(0xFF202329)
 val greyBackGroundColor = Color(0xFF3C3E44)
+val greenColor = Color(0xFF55CC44)
+val redColor = Color(0xFFD63D2E)
+val greyColor = Color(0xFF9E9E9E)

@@ -1,18 +1,19 @@
 package com.pvsb.rickandmortycompose.presentation.components
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.pvsb.rickandmortycompose.R
 import com.pvsb.rickandmortycompose.data.dto.CharactersResultsResponseDTO
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -60,11 +61,33 @@ fun CharacterCard(
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Text(
-                    text = character.status,
+                    text = "${character.status} - ${character.species}",
                     style = CustomTypography.typography.body2,
-                    modifier = Modifier.padding(all = 8.dp)
+                    modifier = Modifier.padding(all = 8.dp),
+                    color = getCharacterStatusColor(character.status)
                 )
             }
+        }
+    }
+}
+
+private fun getCharacterStatusColor(status: String): Color {
+
+    return when (status) {
+        "Alive" -> {
+            greenColor
+        }
+        "Dead" -> {
+            redColor
+        }
+        "Unknown" -> {
+            greyColor
+        }
+        "unknown" ->{
+            greyColor
+        }
+        else -> {
+            Color.White
         }
     }
 }
