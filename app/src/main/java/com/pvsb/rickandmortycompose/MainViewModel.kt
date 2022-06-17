@@ -1,8 +1,8 @@
-package com.example.rickandmortycompose
+package com.pvsb.rickandmortycompose
 
 import androidx.lifecycle.ViewModel
-import com.example.rickandmortycompose.data.dto.PostResponse
-import com.example.rickandmortycompose.data.ktor.PostService
+import com.pvsb.rickandmortycompose.data.dto.PostResponse
+import com.pvsb.rickandmortycompose.data.remote.PostService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

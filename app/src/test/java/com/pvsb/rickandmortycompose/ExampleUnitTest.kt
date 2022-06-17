@@ -1,4 +1,4 @@
-package com.example.rickandmortycompose
+package com.pvsb.rickandmortycompose
 
 import org.junit.Test
 

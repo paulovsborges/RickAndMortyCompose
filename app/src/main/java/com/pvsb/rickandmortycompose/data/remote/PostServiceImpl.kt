@@ -1,8 +1,8 @@
-package com.example.rickandmortycompose.data.ktor
+package com.pvsb.rickandmortycompose.data.remote
 
-import com.example.rickandmortycompose.data.Routes.POSTS
-import com.example.rickandmortycompose.data.dto.PostRequest
-import com.example.rickandmortycompose.data.dto.PostResponse
+import com.pvsb.rickandmortycompose.data.Routes.POSTS
+import com.pvsb.rickandmortycompose.data.dto.PostRequest
+import com.pvsb.rickandmortycompose.data.dto.PostResponse
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*

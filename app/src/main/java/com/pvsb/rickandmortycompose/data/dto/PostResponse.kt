@@ -1,4 +1,4 @@
-package com.example.rickandmortycompose.data.dto
+package com.pvsb.rickandmortycompose.data.dto
 
 import kotlinx.serialization.Serializable
 

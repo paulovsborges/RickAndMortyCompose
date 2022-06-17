@@ -1,4 +1,4 @@
-package com.example.rickandmortycompose.data
+package com.pvsb.rickandmortycompose.data
 
 object Routes {
     private const val BASE_URL = "https://jsonplaceholder.typicode.com"

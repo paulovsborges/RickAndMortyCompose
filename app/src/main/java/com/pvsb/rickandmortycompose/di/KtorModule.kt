@@ -1,4 +1,4 @@
-package com.example.rickandmortycompose.di
+package com.pvsb.rickandmortycompose.di
 
 import dagger.Module
 import dagger.Provides

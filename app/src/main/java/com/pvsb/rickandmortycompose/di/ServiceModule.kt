@@ -1,10 +1,9 @@
-package com.example.rickandmortycompose.di
+package com.pvsb.rickandmortycompose.di
 
-import com.example.rickandmortycompose.data.ktor.PostService
-import com.example.rickandmortycompose.data.ktor.PostServiceImpl
+import com.pvsb.rickandmortycompose.data.remote.PostService
+import com.pvsb.rickandmortycompose.data.remote.PostServiceImpl
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
