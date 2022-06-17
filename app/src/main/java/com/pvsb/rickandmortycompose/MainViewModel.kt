@@ -1,7 +1,10 @@
 package com.pvsb.rickandmortycompose
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.pvsb.rickandmortycompose.data.dto.CharactersResultsResponseDTO
 import com.pvsb.rickandmortycompose.data.dto.PostResponse
 import com.pvsb.rickandmortycompose.data.remote.PostService
 import com.pvsb.rickandmortycompose.data.remote.RickService
@@ -15,15 +18,8 @@ class MainViewModel @Inject constructor(
     private val rickService: RickService
 ) : ViewModel() {
 
-    init {
-        viewModelScope.launch {
-            try {
-                getCharacters()
-            }catch (e: Exception){
-                println(e.message)
-            }
-        }
-    }
+    private val _charactersList = MutableLiveData<List<CharactersResultsResponseDTO>>()
+    val charactersList: LiveData<List<CharactersResultsResponseDTO>> = _charactersList
 
     suspend fun getPosts(): List<PostResponse> {
 
@@ -36,10 +32,12 @@ class MainViewModel @Inject constructor(
         return list
     }
 
-    suspend fun getCharacters(){
+    fun getCharacters() {
 
-        val response = rickService.getCharacters()
+        viewModelScope.launch {
 
-        println(response)
+            val response = rickService.getCharacters()
+            _charactersList.value = response.results
+        }
     }
 }
